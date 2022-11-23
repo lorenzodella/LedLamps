@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:outlineAmbientShadowColor="@color/blue_200">
+
+    <Spinner
+        android:id="@+id/mode_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/mode_spinner">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="min"
+            android:layout_gravity="center_vertical"/>
+        <NumberPicker
+            android:id="@+id/minutePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <include layout="@layout/divider"/>
+            <include layout="@layout/divider"/>
+        </LinearLayout>
+        <NumberPicker
+            android:id="@+id/secondPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sec"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/fade1_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stroke_border"
+        android:backgroundTint="@color/pink_200"
+        android:backgroundTintMode="multiply"
+        android:layout_toStartOf="@id/fade2_picker"
+        android:src="@drawable/ic_baseline_colorize_24"
+        android:visibility="gone"
+        android:layout_marginEnd="10dp"
+        android:padding="5dp"
+        app:tint="@color/white"/>
+    <ImageButton
+        android:id="@+id/fade2_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stroke_border"
+        android:backgroundTint="@color/blue_200"
+        android:backgroundTintMode="multiply"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_colorize_24"
+        android:visibility="gone"
+        android:layout_marginEnd="10dp"
+        android:padding="5dp"
+        app:tint="@color/white" />
+
+    <ImageButton
+        android:id="@+id/custom_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stroke_border"
+        android:backgroundTint="@color/blue_200"
+        android:backgroundTintMode="multiply"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_colorize_24"
+        android:visibility="gone"
+        android:layout_marginEnd="10dp"
+        android:padding="5dp"
+        app:tint="@color/white" />
+
+</RelativeLayout>

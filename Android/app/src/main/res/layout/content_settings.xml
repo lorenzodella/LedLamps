@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.ledlamps.main.CustomSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/swipe_refresh"
+    android:background="@android:color/transparent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/blue_200"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/head"
+            android:background="@drawable/header"/>
+
+        <ImageView
+            android:id="@+id/section_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_baseline_settings_24"
+            android:backgroundTint="@color/white"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lamp settings"
+            android:fontFamily="@font/gloria_hallelujah"
+            android:textSize="27sp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/section_icon"
+            android:layout_marginTop="-10dp"
+            android:textColor="@color/white"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title"
+            android:layout_marginTop="-20dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="15dp"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WiFi"
+                    android:fontFamily="@font/gloria_hallelujah"
+                    android:textSize="20sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/pink_200"/>
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wifi"
+                    android:layout_centerHorizontal="true"
+                    android:columnCount="2"
+                    android:rowCount="8">
+
+                    <TextView
+                        android:id="@+id/ssid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SSID"
+                        android:fontFamily="@font/gloria_hallelujah"
+                        android:textSize="16sp"
+                        android:padding="2dp"
+                        android:textColor="@color/black"/>
+                    <EditText
+                        android:id="@+id/edit_ssid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="unknown"
+                        android:focusable="false"
+                        android:ems="10"
+                        android:layout_marginStart="30dp"/>
+
+                    <TextView
+                        android:id="@+id/ip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IP"
+                        android:fontFamily="@font/gloria_hallelujah"
+                        android:textSize="16sp"
+                        android:padding="2dp"
+                        android:textColor="@color/black"/>
+                    <EditText
+                        android:id="@+id/edit_ip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="unknown"
+                        android:focusable="false"
+                        android:ems="10"
+                        android:layout_marginStart="30dp"/>
+
+                </GridLayout>
+
+                <TextView
+                    android:id="@+id/info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:fontFamily="@font/gloria_hallelujah"
+                    android:textSize="20sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/wifi"
+                    android:layout_marginTop="150dp"
+                    android:textColor="@color/pink_200"/>
+
+
+                <Button
+                    android:id="@+id/connect_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="connect\nto wifi"
+                    android:layout_below="@id/info"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:layout_alignStart="@id/connect_cloud"
+                    android:layout_alignEnd="@id/connect_cloud"
+                    android:backgroundTint="@color/pink_200"/>
+
+                <LinearLayout
+                    android:id="@+id/layout_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/info"
+                    android:layout_alignStart="@+id/layout_cloud"
+                    android:layout_alignEnd="@+id/layout_cloud"
+                    android:layout_alignTop="@id/connect_wifi"
+                    android:layout_alignBottom="@id/connect_wifi">
+                    <ImageView
+                        android:id="@+id/circle_wifi"
+                        android:layout_width="17dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_brightness_1_black_24dp"
+                        app:tint="@android:color/holo_red_dark" />
+                    <TextView
+                        android:id="@+id/is_connected_wifi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="not connected to wifi"
+                        android:textColor="@android:color/holo_red_dark"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/connect_cloud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="connect\nto cloud"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:layout_below="@id/connect_wifi"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp"
+                    android:backgroundTint="@color/pink_200"/>
+                <LinearLayout
+                    android:id="@+id/layout_cloud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_wifi"
+                    android:layout_toEndOf="@id/connect_cloud"
+                    android:layout_alignTop="@id/connect_cloud"
+                    android:layout_alignBottom="@id/connect_cloud"
+                    android:layout_marginStart="20dp">
+                    <ImageView
+                        android:id="@+id/circle_cloud"
+                        android:layout_width="17dp"
+                        android:layout_height="14dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_brightness_1_black_24dp"
+                        app:tint="@android:color/holo_red_dark" />
+
+                    <TextView
+                        android:id="@+id/is_connected_cloud"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="not connected to cloud"
+                        android:textColor="@android:color/holo_red_dark" />
+                </LinearLayout>
+
+
+
+
+                <TextView
+                    android:id="@+id/current"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current mode"
+                    android:fontFamily="@font/gloria_hallelujah"
+                    android:textSize="20sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@id/current_layout"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/pink_200"/>
+
+                <RelativeLayout
+                    android:id="@+id/current_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/table_border">
+
+                    <TextView
+                        android:id="@+id/mode_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="\???"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:background="@drawable/table_border"
+                        android:backgroundTint="@color/pink_200"
+                        android:backgroundTintMode="multiply"
+                        android:textColor="@color/black"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignTop="@id/mode_desc"
+                        android:layout_alignBottom="@id/mode_desc"/>
+
+                    <TextView
+                        android:id="@+id/mode_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You must be connected to cloud to get this information"
+                        android:justificationMode="inter_word"
+                        android:padding="20dp"
+                        android:layout_toEndOf="@id/mode_name"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</com.example.ledlamps.main.CustomSwipeRefreshLayout>
