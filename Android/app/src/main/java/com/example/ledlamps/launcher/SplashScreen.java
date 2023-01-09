@@ -12,6 +12,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -50,10 +51,15 @@ public class SplashScreen extends AppCompatActivity implements JsonHttpRequest.O
 
 
     private void load(){
+        String system_ssid = LedLampsUtils.getSystemSsid();
         sharedPref = getSharedPreferences("user", 0);
-        System.out.println(LedLampsUtils.getSystemSsid());
+        System.out.println(system_ssid);
 
-        if(LedLampsUtils.getSystemSsid().equals("\"LedLamps\"")){
+        String last_ssid = getSharedPreferences("settings",0).getString("last_ssid",null);
+        //Log.d("last",last_ssid);
+        //Log.d("cur",system_ssid);
+
+        if(system_ssid.equals("\"LedLamps\"") || system_ssid.equals("\""+last_ssid+"\"")){
             User.setUser(
                     sharedPref.getInt("idUser", 0),
                     sharedPref.getString("username", ""),
@@ -184,14 +190,14 @@ public class SplashScreen extends AppCompatActivity implements JsonHttpRequest.O
     }
 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 10) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
                     PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                 showLocationPermissionAlert();
-            }
-            else {
+            } else {
                 load();
             }
         }

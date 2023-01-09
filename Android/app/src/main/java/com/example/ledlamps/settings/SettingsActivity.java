@@ -2,6 +2,7 @@
 
 package com.example.ledlamps.settings;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -173,8 +174,17 @@ public class SettingsActivity extends AppCompatActivity implements JsonHttpReque
     @Override
     public void onSyncReady(JSONObject jobj) {
         try {
-            ssid.setText(jobj.getString("ssid"));
-            ip.setText(jobj.getString("ip").contains("unset") ? "" : jobj.getString("ip"));
+            String mSsid = jobj.getString("ssid");
+            SharedPreferences settings = getSharedPreferences("settings",0);
+            settings.edit().putString("last_ssid",mSsid).apply();
+            ssid.setText(mSsid);
+            String mIp = jobj.getString("ip");
+            ip.setText(mIp.contains("unset") ? "" : mIp);
+            if(mIp.contains("unset"))
+                settings.edit().clear().apply();
+            else
+                settings.edit().putString("last_ip",mIp).apply();
+
             isConnectedCloud.setText(jobj.getInt("connected") == 0 ? "not connected to cloud" : "connected to cloud");
             if(jobj.has("modeName")) {
                 modeName.setText(jobj.getString("modeName"));
@@ -185,7 +195,9 @@ public class SettingsActivity extends AppCompatActivity implements JsonHttpReque
                 modeDesc.setText("You must be connected to cloud to get this information");
             }
 
-            if(!LedLampsUtils.getSystemSsid().equals("\"LedLamps\"") && jobj.getInt("connected") == 0 && showToast){
+            String system_ssid = LedLampsUtils.getSystemSsid();
+            if(!system_ssid.equals("\"LedLamps\"") && !system_ssid.equals(mSsid) &&
+                    jobj.getInt("connected") == 0 && showToast){
                 Toast.makeText(this, "Your lamp is not connected!", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {

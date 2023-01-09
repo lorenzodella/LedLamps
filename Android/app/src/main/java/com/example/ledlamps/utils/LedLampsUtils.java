@@ -3,8 +3,10 @@
 package com.example.ledlamps.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.util.Log;
 
 import com.skydoves.colorpickerview.ColorEnvelope;
 
@@ -28,12 +30,18 @@ public class LedLampsUtils {
 
     public static String getHost() {
         String host = "";
+        SharedPreferences settings = context.getSharedPreferences("settings",0);
+        String last_ssid = settings.getString("last_ssid",null);
         //Toast.makeText(context, getSystemSsid(), Toast.LENGTH_SHORT).show();
         if (getSystemSsid().equals("\"LedLamps\""))
             host = "http://192.168.4.1";
+        else if (getSystemSsid().equals("\""+last_ssid+"\"")){
+            host = "http://"+settings.getString("last_ip","ledlampsweb.it/control");
+        }
         else
             host = "https://ledlampsweb.it/control";
         //Toast.makeText(context, "request to: "+host, Toast.LENGTH_SHORT).show();
+        Log.d("host",host);
         return host;
     }
 
