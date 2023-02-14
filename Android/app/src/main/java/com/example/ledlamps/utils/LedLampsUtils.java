@@ -14,7 +14,8 @@ public class LedLampsUtils {
     private static String fade1;
     private static String fade2;
     //public static String server_ip = "dellamatera.ddns.net";
-    public static String server_ip = "80.211.47.247";
+    //public static String server_ip = "80.211.47.247";
+    public static String server_ip = "ledlamps.azurewebsites.net";
 
     public static void setSystem(Context context) {
         LedLampsUtils.context = context;
@@ -32,7 +33,7 @@ public class LedLampsUtils {
         if (getSystemSsid().equals("\"LedLamps\""))
             host = "http://192.168.4.1";
         else
-            host = "https://ledlampsweb.it/control";
+            host = "https://"+server_ip;
         //Toast.makeText(context, "request to: "+host, Toast.LENGTH_SHORT).show();
         return host;
     }
