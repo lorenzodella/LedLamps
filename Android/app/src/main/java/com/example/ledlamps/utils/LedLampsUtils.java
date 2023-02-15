@@ -16,6 +16,7 @@ public class LedLampsUtils {
     //public static String server_ip = "dellamatera.ddns.net";
     //public static String server_ip = "80.211.47.247";
     public static String server_ip = "ledlamps.azurewebsites.net";
+    public static String cloud_ip = "lorenzodellamatera.northeurope.cloudapp.azure.com";
 
     public static void setSystem(Context context) {
         LedLampsUtils.context = context;
