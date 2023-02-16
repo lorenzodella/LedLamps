@@ -1,0 +1,113 @@
+body {
+    background: linear-gradient(to bottom right,#00eaff,#ff00d6);
+    font-family: Gloria Hallelujah;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+hr {
+    height: 5px;
+}
+h1 {
+    text-align: center;
+    font-size: 35px;
+    padding: 0;
+}
+p {
+    text-align: center;
+    font-size:40px;
+    color: black;
+}
+marquee {
+    font-size: 25px;
+    color: white;
+}
+.button {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+    font-family: Gloria Hallelujah;
+    
+    width: 70%;  
+    display: block;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    border: solid black;
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 200%;
+    font-weight: bold;
+    padding: 20px;
+
+    transition: width 500ms, font-size 500ms;
+}
+.button:hover {
+    width: 90%;
+    font-size: 45px;
+}
+.button.default:active {
+    box-shadow: 0 4px rgba(0, 0, 0, 0.7);
+    transform: translateY(4px);
+}
+.button.default {
+    box-shadow: 0 9px rgba(0, 0, 0, 0.4);
+}
+.button.current:active {
+    box-shadow: 0 4px rgba(0, 0, 0, 0.7), 0px 3px 40px 10px rgba(255,255,255,1);
+    transform: translateY(4px);
+}
+.button.current {
+    box-shadow: 0 9px rgba(0, 0, 0, 0.4), 0px 3px 40px 10px rgba(255,255,255,1);
+}
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+img.icon {
+    width: 5%;
+    float: left;
+    margin: 2%;
+    transition: width 100ms;
+}
+img.icon:hover {
+    width: 7%;
+}
+
+button.profile {
+    font-family: Comic Sans MS;
+    text-decoration: underline;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    border: 2px solid white;
+    background: none;
+    padding: 4px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-right: 10px;
+
+}
+
+button.profile:hover{
+    color: yellow;
+}
+
