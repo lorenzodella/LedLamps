@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  
+  <head>
+    <link rel="icon" href="icon.png" type="image/png"/>
+    <title>LedLamps</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="JSONdata.js"></script>
+	  <script type="text/javascript" src="loader.js"></script>
+  </head>
+
+  <body onload="load()">
+    <a href ="index.html"> <img src="icon.png" class="center" title="refresh"> </a>
+  
+    <h1 style="font-size:60px;">You are connected to LED LAMPS!</h1>
+    <p>Choose the option mode below to control your lamps</p>
+    
+    <hr> <br>
+
+    <a href ="/mode?opMode=off" class="button" style="background-color:black; color:white;">
+      TURN OFF
+    </a> <br>
+
+    <a href ="/mode?opMode=on" class="button" style="background-color:white;">
+      TURN ON
+    </a> </br>
+
+    <hr> <br>
+
+    <a href ="/mode?opMode=sound_reactive" class="button" style="background:linear-gradient(to right,#34eb59,#4034eb,#e834eb,#eb3434,#ebd034,#fff);">
+      SOUND REACTIVE
+    </a> </br>
+    <a href ="/mode?opMode=chill_fade" class="button" style="background:linear-gradient(to right,#00eaff,#ff00d6);">
+      CHILL FADE
+    </a> </br>
+    <a href ="/mode?opMode=color_wipe" class="button" style="background:linear-gradient(to right,#FF0000,#00FF00,#0000FF);">
+      COLOR WIPE
+    </a> </br>
+    <a href ="/mode?opMode=color_flash" class="button" style="background:linear-gradient(to right,#FF0000,#00FF00,#0000FF);">
+      COLOR FLASH
+    </a> </br>
+    <a href ="/mode?opMode=rainbow_cycle" class="button" style="background:linear-gradient(to right,#FF0000,#FF7F00,#FFFF00,#00FF00,#0000FF,#4B0082,#9400D3);">
+      RAINBOW CYCLE
+    </a> </br>
+    <a href ="/mode?opMode=rainbow_fade" class="button" style="background:linear-gradient(to right,#FF0000,#FF7F00,#FFFF00,#00FF00,#0000FF,#4B0082,#9400D3);">
+      RAINBOW FADE
+    </a> </br>
+    <a href ="/mode?opMode=rainbow_chase" class="button" style="background:linear-gradient(to right,#FF0000,#FF7F00,#FFFF00,#00FF00,#0000FF,#4B0082,#9400D3);">
+      RAINBOW CHASE
+    </a> </br>
+    <a href ="/mode?opMode=strobe" class="button" style="background:linear-gradient(to right,#FF0,#ff8,#fff,#ff8,#FF0,#ff8,#fff,#ff8,#FF0,#ff8,#fff,#ff8,#ff0);">
+      STROBE
+    </a> </br>
+    <a href ="/mode?opMode=fire" class="button" style="background:linear-gradient(to right,#FFFF00,#FF0000);">
+      FIRE
+    </a> </br>
+    <a href ="/mode?opMode=balls" class="button" style="background-color:#b75ffa;">
+      BOUNCING BALLS
+    </a> </br>
+    <a href ="/mode?opMode=fill_random" class="button" style="background-color:#d7ff87;">
+      FILL RANDOM
+    </a> </br>
+    <a href ="/mode?opMode=clap_colors" class="button" style="background-color:#03fcad;">
+      CLAP
+    </a> </br>
+    <a href ="/mode?opMode=twinkle" class="button" style="background-color:#ffa987;">
+      TWINKLE
+    </a> </br>
+    <a href ="/mode?opMode=sparkle" class="button" style="background-color:#b34b74;">
+      SPARKLE
+    </a> </br>
+    <a href ="/mode?opMode=strobe_shot" class="button" style="background-color:#207532;">
+      STROBE SHOT
+    </a> </br>
+    <a href ="/mode?opMode=strobe_fade" class="button" style="background-color:#8d6b0e;">
+      STROBE FADE
+    </a> </br>
+    
+    <hr> <br>
+
+    <a href ="/mode?opMode=red" class="button" style="background-color:red;">
+      RED
+    </a> </br>
+    <a href ="/mode?opMode=blue" class="button" style="background-color:blue;">
+      BLUE
+    </a> </br>
+    <a href ="/mode?opMode=green" class="button" style="background-color:green;">
+      GREEN
+    </a> </br>
+
+    <hr> <br>
+    
+    <div id="double">
+      <a href ="/mode?opMode=fade" class="button">
+        FADE COLORS
+      </a> </br>
+      <a href ="/mode?opMode=double" class="button">
+        DOUBLE COLOR
+      </a> </br>
+      <a href ="/mode?opMode=fix" class="button">
+        FIX COLORS
+      </a> </br>
+      <a href ="/mode?opMode=swapping" class="button">
+        SWAPPING COLORS
+      </a> </br>
+
+      <div class="center">
+        <img onclick="location.href='doubleColorPicker.html'" src="color_picker.jpg" class="icon"> <p style="font-size: 30px;">Choose colors</p>
+      </div>
+      
+    </div>
+    
+    <hr> <br>
+
+    <a href ="/mode?opMode=custom_color" class="button" id="color">
+      COLOR
+    </a> </br>
+    <a href ="/mode?opMode=custom_fade" class="button" id="fade">
+      COLOR FADE
+    </a> </br>
+
+    <div class="center">
+      <img onclick="location.href='colorPicker.html'" src="color_picker.jpg" class="icon"> <p style="font-size: 30px;">Choose color</p>
+    </div>
+
+    <hr> <br>
+
+    <a href ="brightnessPicker.html" class="button" id="brightness">
+      SET BRIGHTNESS
+    </a> </br>
+    
+    <hr> <br>
+
+    <marquee>&copy Lorenzo Della Matera - all rights reserved</marquee>
+  </body>
+</html>

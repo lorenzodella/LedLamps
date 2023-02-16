@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="icon.png" type="image/png"/>
+    <title>LedLamps - picker</title>
+    <script type="text/javascript" src="JSONdata.js"></script>
+    <script type="text/javascript">
+        function load(){
+            var mydata = JSON.parse(data);
+
+            document.getElementById("brightness").value = mydata["brightness"];
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom right,#00eaff,#ff00d6);
+            font-family: Comic Sans MS;
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 500px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 500px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 3px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 40px;
+            width: 20px;
+            border: 2px solid #000;
+            border-radius: 6px;
+            background: #fff;
+            margin-top: -16px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        .button {
+            font-family: Comic Sans MS;
+            -webkit-user-select: none;  
+            -moz-user-select: none;    
+            -ms-user-select: none;      
+            user-select: none;
+            
+            width: 20%;  
+            display: block;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 25px;
+            border: solid black;
+            color: black;
+            background-color: whitesmoke;
+            outline: none;
+
+            text-align: center;
+            text-decoration: none;
+            font-size: 200%;
+            font-weight: bold;
+            padding: 20px;
+
+            box-shadow: 0 9px #999;
+            transition: width 500ms, font-size 500ms;
+        }
+        .button:hover {
+            width: 30%;
+            font-size: 300%;
+        }
+        .button:active {
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <p style="text-align: center;">
+        <strong style="font-size:400%">Drag the cursor to set the brightness</strong>
+    </p><br><br>
+    <div style="text-align: center;">
+        <form action="/set_brightness_hash">
+            <input type="range" id="brightness" name="brightness" min="0" max="255"><br><br>
+            <input type="submit" class="button">
+        </form>
+    </div>
+    <br><br>
+
+    <a class="button" style="width: 25%;" id="homeBtn" href="index.html">Main Menu</a>
+    <br><br>
+</body>
+
+</html>

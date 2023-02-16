@@ -1,0 +1,1 @@
+data = '{ "fade1": "#ff0000", "fade2": "#00ff00", "custom": "#0000ff", "opMode": "2", "random": "0", "brightness": "255", "ssid": "", "ip": "", "connected": "0", "host": "lorenzodellamatera.northeurope.cloudapp.azure.com" }';
