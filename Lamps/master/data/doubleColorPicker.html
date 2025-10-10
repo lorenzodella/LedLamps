@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="icon.png" type="image/png"/>
+    <title>LedLamps - picker</title>
+    <script type="text/javascript" src="JSONdata.js"></script>
+    <script type="text/javascript">
+        function load(){
+            var mydata = JSON.parse(data);
+
+            document.getElementById("first").value = mydata["fade1"];
+            document.getElementById("second").value = mydata["fade2"];
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom right,#00eaff,#ff00d6);
+            font-family: Comic Sans MS;
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        input[type=color] {
+            width:48%;
+            height:480px
+        }
+        .button {
+            font-family: Comic Sans MS;
+            -webkit-user-select: none;  
+            -moz-user-select: none;    
+            -ms-user-select: none;      
+            user-select: none;
+            
+            width: 20%;  
+            display: block;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 25px;
+            border: solid black;
+            color: black;
+            background-color: whitesmoke;
+            outline: none;
+
+            text-align: center;
+            text-decoration: none;
+            font-size: 200%;
+            font-weight: bold;
+            padding: 20px;
+
+            box-shadow: 0 9px #999;
+            transition: width 500ms, font-size 500ms;
+        }
+        .button:hover {
+            width: 30%;
+            font-size: 300%;
+        }
+        .button:active {
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+    <body onload="load()"> 
+        <p style="text-align: center;"><id="color_page"><br>
+            <strong style="font-size:400%">Touch below to select the colors</strong>
+        </p><br><br> 
+        <div style="text-align: center;">
+            <form action="/set_color_hash">
+                <input type="color" id="first" name="first" value="#000">
+                <input type="color" id="second" name="second" value="#000">
+                <br>
+                <input type="submit" class="button">
+            </form>
+        </div>
+        <br><br> 
+        
+            <a class="button" style="width: 25%;" id="homeBtn" href="index.html">Main Menu</a>
+        <br><br>
+    </body> 
+</html>

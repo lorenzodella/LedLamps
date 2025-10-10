@@ -84,7 +84,7 @@ public class JsonHttpRequest extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         try {
             strurl = strings[0];
-            if(!strurl.contains("ledlampsweb")){
+            if(!strurl.contains(LedLampsUtils.server_ip)){
                 strurl = strurl.replace(".php","");
                 URL url = new URL(strurl);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();

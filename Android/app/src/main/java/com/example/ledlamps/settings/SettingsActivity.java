@@ -105,7 +105,7 @@ public class SettingsActivity extends AppCompatActivity implements JsonHttpReque
                     if (LedLampsUtils.getSystemSsid().equals("\"LedLamps\"")) {
                         JsonHttpRequest jsonHttpRequest = new JsonHttpRequest(getApplicationContext(), showToast);
                         jsonHttpRequest.setOnSyncReadyListener(SettingsActivity.this);
-                        jsonHttpRequest.execute(LedLampsUtils.getHost()+"/connect?host=" + LedLampsUtils.server_ip);
+                        jsonHttpRequest.execute(LedLampsUtils.getHost()+"/connect?host=" + LedLampsUtils.cloud_ip);
                     }
                     else
                         Toast.makeText(getApplicationContext(), "Connect to LedLamps net to edit settings", Toast.LENGTH_SHORT).show();
